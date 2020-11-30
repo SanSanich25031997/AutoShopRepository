@@ -14,22 +14,22 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 1 "C:\Users\1\source\repos\AutoShop\AutoShop\Views\_ViewImports.cshtml"
-using AutoShop.ViewModels.AutoShopCartVM;
+using AutoShop.ViewModels.AutoShopCartVM.List;
 
 #line default
 #line hidden
 #line 2 "C:\Users\1\source\repos\AutoShop\AutoShop\Views\_ViewImports.cshtml"
-using AutoShop.ViewModels.CarsVM;
+using AutoShop.ViewModels.CarsVM.List;
 
 #line default
 #line hidden
 #line 3 "C:\Users\1\source\repos\AutoShop\AutoShop\Views\_ViewImports.cshtml"
-using AutoShop.ViewModels.HomeVM;
+using AutoShop.ViewModels.HomeVM.List;
 
 #line default
 #line hidden
 #line 4 "C:\Users\1\source\repos\AutoShop\AutoShop\Views\_ViewImports.cshtml"
-using AutoShop.ViewModels.OrderVM;
+using AutoShop.ViewModels.OrderVM.CreateEdit;
 
 #line default
 #line hidden
@@ -39,7 +39,7 @@ using DataLayer.Entities;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"747cc863a14dac6c44e8b4a6f47615a5ae1ca19f", @"/Views/Order/Complete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3eb9c2f7bfc804a7c1d556dc89e093806552165a", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dafcf9046eabff13b4a172bf3cf7e01e2b25a0fa", @"/Views/_ViewImports.cshtml")]
     public class Views_Order_Complete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

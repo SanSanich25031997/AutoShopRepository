@@ -46,7 +46,6 @@ C:\Users\1\source\repos\AutoShop\AutoShop\bin\Debug\netcoreapp3.1\Microsoft.Exte
 C:\Users\1\source\repos\AutoShop\AutoShop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\1\source\repos\AutoShop\AutoShop\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\1\source\repos\AutoShop\AutoShop\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
-C:\Users\1\source\repos\AutoShop\AutoShop\obj\Debug\netcoreapp3.1\AutoShop.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\1\source\repos\AutoShop\AutoShop\obj\Debug\netcoreapp3.1\AutoShop.TagHelpers.input.cache
 C:\Users\1\source\repos\AutoShop\AutoShop\obj\Debug\netcoreapp3.1\AutoShop.TagHelpers.output.cache
 C:\Users\1\source\repos\AutoShop\AutoShop\obj\Debug\netcoreapp3.1\AutoShop.RazorCoreGenerate.cache

@@ -1,9 +1,9 @@
-﻿@model HomeViewModel
+﻿@model HomeListViewModel
 
 <h1>Лучшие марки автомобилей</h1>
 
 @{
-    foreach (Car car in Model.FavoriteCars)
+    foreach (DataLayer.Entities.Cars.Car car in Model.FavoriteCars)
     {
         @Html.Partial("AllCars", car)
     }

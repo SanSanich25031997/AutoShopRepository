@@ -1,48 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using DataLayer.Repository;
-using DataLayer.Interfaces;
-using DataLayer.Entities;
-using AutoShop.ViewModels.AutoShopCartVM;
+﻿using Microsoft.AspNetCore.Mvc;
+using AutoShop.ViewModels.AutoShopCartVM.List;
 
 namespace AutoShop.Controllers
 {
     public class AutoShopCartController : Controller
     {
-        private readonly ICarsRepository carRepository;
-        private readonly AutoShopCart autoShopCart;
+        private readonly IAutoShopCartListViewModelBuilder autoShopCartListViewModelBuilder;
 
-        public AutoShopCartController(ICarsRepository carRepository, AutoShopCart autoShopCart)
+        public AutoShopCartController(IAutoShopCartListViewModelBuilder autoShopCartListViewModelBuilder)
         {
-            this.carRepository = carRepository;
-            this.autoShopCart = autoShopCart;
+            this.autoShopCartListViewModelBuilder = autoShopCartListViewModelBuilder;
         }
 
         public ViewResult Index()
         {
-            var items = autoShopCart.GetAutoShopItems();
-            autoShopCart.ListAutoShopItems = items;
-            var obj = new AutoShopCartViewModel
-            {
-                AutoShopCart = autoShopCart
-            };
-
             ViewBag.Title = "Корзина";
 
-            return View(obj);
+            return View(autoShopCartListViewModelBuilder.Build());
         }
 
         public RedirectToActionResult AddToCart(int id)
         {
-            var item = carRepository.Cars.FirstOrDefault(i => i.Id == id);
-
-            if (item != null)
-            {
-                autoShopCart.AddToCart(item);
-            }
+            autoShopCartListViewModelBuilder.AddToCart(id);
 
             return RedirectToAction("Index");
         }

@@ -3,12 +3,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-using DataLayer.Repository;
-using DataLayer.Interfaces;
-using DataLayer.Entities;
+using DataLayer.Entities.Cars;
+using DataLayer.Entities.Categories;
+using DataLayer.Entities.Orders;
 using DataLayer;
-using AutoShop.ViewModels.OrderVM;
-using AutoShop.ViewModels.ModelStateVM;
+using DataLayer;
+using AutoShop.ViewModels.OrderVM.CreateEdit;
+using AutoShop.Core.Validation;
 
 namespace AutoShop
 {
@@ -31,9 +32,9 @@ namespace AutoShop
             services.AddScoped<IModelStateViewModelBuilder, ModelStateViewModelBuilder>();
             services.AddScoped<IOrderFormValidator, OrderFormValidator>();
             services.AddScoped<IOrderFormHandler, OrderFormHandler>();
-            services.AddTransient<ICarsRepository, CarsRepository>();
-            services.AddTransient<ICarCategoriesRepository, CategoriesRepository>();
-            services.AddTransient<IOrdersRepository, OrdersRepository>();
+            services.AddTransient<ICarRepository, CarRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => AutoShopCart.GetCart(sp));

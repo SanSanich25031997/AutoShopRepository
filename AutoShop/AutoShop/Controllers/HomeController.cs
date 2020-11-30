@@ -1,28 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using DataLayer.Interfaces;
-using AutoShop.ViewModels.HomeVM;
+using AutoShop.ViewModels.HomeVM.List;
 
 namespace AutoShop.Controllers
 {
     public class HomeController : Controller
     {
-        private ICarsRepository carsRepository;
+        private readonly IHomeListViewModelBuilder homeListViewModelBuilder;
 
-        public HomeController(ICarsRepository carsRepository)
+        public HomeController(IHomeListViewModelBuilder homeListViewModelBuilder)
         {
-            this.carsRepository = carsRepository;
+            this.homeListViewModelBuilder = homeListViewModelBuilder;
         }
 
         public ViewResult Index()
         {
-            var homeCars = new HomeViewModel
-            {
-                FavoriteCars = carsRepository.GetFavoriteCars
-            };
-
             ViewBag.Title = "Главная страница";
 
-            return View(homeCars);
+            return View(homeListViewModelBuilder.Build());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DataLayer.Entities;
+using DataLayer.Entities.Cars;
+using DataLayer.Entities.Categories;
 
 namespace DataLayer
 {
@@ -16,15 +17,17 @@ namespace DataLayer
                 {
                     var list = new Category[]
                     {
-                        new Category { CategoryName = "Электромобили", Description = "Современный вид транспорта"},
-                        new Category { CategoryName = "Топливные автомобили", Description = "Автомобиль с двигателем внутреннего сгорания" }
+                        new Category { Name = "Электромобили", 
+                            Description = "Современный вид транспорта"},
+                        new Category { Name = "Топливные автомобили", 
+                            Description = "Автомобиль с двигателем внутреннего сгорания" }
                     };
 
                     category = new Dictionary<string, Category>();
 
                     foreach (Category element in list)
                     {
-                        category.Add(element.CategoryName, element);
+                        category.Add(element.Name, element);
                     }
                 }
 
@@ -45,51 +48,51 @@ namespace DataLayer
                     new Car
                     {
                         Name = "Tesla",
-                        ShortDescription = "Очень популярные электромобили",
+                        Description = "Очень популярные электромобили",
                         Image = "/images/Tesla.jpg",
                         Price = 450000,
                         IsFavorite = true,
-                        Available = true,
+                        IsAvailable = true,
                         Category = Categories["Электромобили"],
                     },
                     new Car
                     {
                         Name = "BMW X5",
-                        ShortDescription = "Один из самых популярных автомобилей мира.",
+                        Description = "Один из самых популярных автомобилей мира.",
                         Image = "/images/BMW.jpg",
                         Price = 5150000,
                         IsFavorite = true,
-                        Available = true,
+                        IsAvailable = true,
                         Category = Categories["Топливные автомобили"],
                     },
                     new Car
                     {
                         Name = "Mercedes-Benz",
-                        ShortDescription = "Одна из самых популярных машин мира.",
+                        Description = "Одна из самых популярных машин мира.",
                         Image = "/images/Mercedes.jpg",
                         Price = 2230000,
                         IsFavorite = true,
-                        Available = true,
+                        IsAvailable = true,
                         Category = Categories["Топливные автомобили"],
                     },
                     new Car
                     {
                         Name = "LADA Granta",
-                        ShortDescription = "Очень популярный автомобиль в России.",
+                        Description = "Очень популярный автомобиль в России.",
                         Image = "/images/LADA.jpg",
                         Price = 483900,
                         IsFavorite = false,
-                        Available = true,
+                        IsAvailable = true,
                         Category = Categories["Топливные автомобили"],
                     },
                     new Car
                     {
                         Name = "Toyota Prius",
-                        ShortDescription = "Довольно известный автомобиль",
+                        Description = "Довольно известный автомобиль",
                         Image = "/images/Toyota.jpg",
                         Price = 2322000,
                         IsFavorite = false,
-                        Available = true,
+                        IsAvailable = true,
                         Category = Categories["Электромобили"],
                     }
                 );

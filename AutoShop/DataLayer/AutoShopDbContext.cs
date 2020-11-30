@@ -1,5 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using DataLayer.Entities;
+using DataLayer.Entities.Cars;
+using DataLayer.Entities.Categories;
+using DataLayer.Entities.AutoShopCartItems;
+using DataLayer.Entities.Orders;
+using DataLayer.Entities.OrderDetails;
 
 namespace DataLayer
 {
