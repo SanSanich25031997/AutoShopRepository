@@ -1,7 +1,7 @@
 ﻿@model AutoShopCartListViewModel
 
 <div class="container mt-5">
-    @foreach (var elemenet in Model.AutoShopCart.ListAutoShopItems)
+    @foreach (var elemenet in Model.AutoShopCartItems)
     {
         <div class="alert alert-warning mt-3">
             <b>Автомобиль: </b>@elemenet.Car.Name<br />

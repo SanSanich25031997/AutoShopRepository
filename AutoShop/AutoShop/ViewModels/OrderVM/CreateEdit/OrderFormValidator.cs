@@ -1,34 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using AutoShop.Core.Validation;
-using DataLayer;
+using DataLayer.Entities.AutoShopCarts;
 
 namespace AutoShop.ViewModels.OrderVM.CreateEdit
 {
     public class OrderFormValidator : IOrderFormValidator
     {
         private readonly IModelStateViewModelBuilder modelStateViewModelBuilder;
-        private readonly AutoShopCart autoShopCart;
+        private readonly IAutoShopCartRepository autoShopCartRepository;
 
-        public OrderFormValidator(IModelStateViewModelBuilder modelStateViewModelBuilder, AutoShopCart autoShopCart)
+        public OrderFormValidator(IModelStateViewModelBuilder modelStateViewModelBuilder, IAutoShopCartRepository autoShopCartRepository)
         {
             this.modelStateViewModelBuilder = modelStateViewModelBuilder;
-            this.autoShopCart = autoShopCart;
-        }
-
-        public OrderValidationResult ValidateOnCheckout(ModelStateDictionary modelState)
-        {
-            autoShopCart.ListAutoShopItems = autoShopCart.GetAutoShopItems();
-
-            if (autoShopCart.ListAutoShopItems.Count == 0)
-            {
-                modelState.AddModelError("EmptyCart", "Корзина не должна быть пустой!");
-            }
-
-            return new OrderValidationResult(modelStateViewModelBuilder.Build(modelState));
+            this.autoShopCartRepository = autoShopCartRepository;
         }
 
         public OrderValidationResult ValidateOnCheckout(OrderForm form, ModelStateDictionary modelState)
         {
+            if (autoShopCartRepository.GetAutoShopItems().Count == 0)
+            {
+                modelState.AddModelError("EmptyCart", "Корзина не должна быть пустой!");
+            }
+
             if (form.Address.Length < 3)
             {
                 modelState.AddModelError("LengthError", "Адрес должен содержать минимум 3 символа!");

@@ -35,16 +35,16 @@ namespace DataLayer
             }
         }
 
-        public static void Initial(AutoShopDbContext context)
+        public static void Initial(AutoShopDbContext autoShopDbContext)
         {
-            if (!context.Category.Any())
+            if (!autoShopDbContext.Category.Any())
             {
-                context.Category.AddRange(Categories.Select(c => c.Value));
+                autoShopDbContext.Category.AddRange(Categories.Select(c => c.Value));
             }
 
-            if (!context.Car.Any())
+            if (!autoShopDbContext.Car.Any())
             {
-                context.AddRange(
+                autoShopDbContext.AddRange(
                     new Car
                     {
                         Name = "Tesla",
@@ -98,7 +98,7 @@ namespace DataLayer
                 );
             }
 
-            context.SaveChanges();
+            autoShopDbContext.SaveChanges();
         }
     }
 }

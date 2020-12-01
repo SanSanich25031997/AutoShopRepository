@@ -7,7 +7,7 @@ using DataLayer.Entities.Cars;
 using DataLayer.Entities.Categories;
 using DataLayer.Entities.Orders;
 using DataLayer;
-using DataLayer;
+using DataLayer.Entities.AutoShopCarts;
 using AutoShop.ViewModels.OrderVM.CreateEdit;
 using AutoShop.Core.Validation;
 
@@ -37,7 +37,7 @@ namespace AutoShop
             services.AddTransient<IOrderRepository, OrderRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped(sp => AutoShopCart.GetCart(sp));
+            services.AddScoped(sp => AutoShopCartRepository.GetCart(sp));
 
             services.AddHttpClient();
             services.AddMvc();

@@ -1,29 +1,26 @@
 ﻿using System.Linq;
 using DataLayer.Entities.Cars;
-using DataLayer;
+using DataLayer.Entities.AutoShopCarts;
 
 namespace AutoShop.ViewModels.AutoShopCartVM.List
 {
     public class AutoShopCartListViewModelBuilder : IAutoShopCartListViewModelBuilder
     {
         private readonly ICarRepository carRepository;
-        private readonly AutoShopCart autoShopCart;
+        private readonly IAutoShopCartRepository autoShopCartRepository;
 
-        public AutoShopCartListViewModelBuilder(ICarRepository carRepository, AutoShopCart autoShopCart)
+        public AutoShopCartListViewModelBuilder(ICarRepository carRepository, IAutoShopCartRepository autoShopCartRepository)
         {
             this.carRepository = carRepository;
-            this.autoShopCart = autoShopCart;
+            this.autoShopCartRepository = autoShopCartRepository;
         }
 
         public AutoShopCartListViewModel Build()
         {
-            var items = autoShopCart.GetAutoShopItems();
-            autoShopCart.ListAutoShopItems = items;
-
             return new AutoShopCartListViewModel
             {
-                AutoShopCart = autoShopCart
-            };
+                AutoShopCartItems = autoShopCartRepository.GetAutoShopItems()
+        };
         }
 
         public void AddToCart(int id)
@@ -32,7 +29,7 @@ namespace AutoShop.ViewModels.AutoShopCartVM.List
 
             if (item != null)
             {
-                autoShopCart.AddToCart(item);
+                autoShopCartRepository.AddToCart(item);
             }
         }
     }

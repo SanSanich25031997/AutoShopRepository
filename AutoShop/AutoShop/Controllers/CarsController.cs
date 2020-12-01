@@ -15,7 +15,6 @@ namespace AutoShop.Controllers
             this.carsListViewModelBuilder = carsListViewModelBuilder;
         }
 
-        [Route("Cars/List")]
         [Route("Cars/List/{category}")]
         public ViewResult List(string category)
         {

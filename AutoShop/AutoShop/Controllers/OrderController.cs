@@ -8,20 +8,18 @@ namespace AutoShop.Controllers
     {
         private readonly IOrderFormValidator orderFormValidator;
         private readonly IOrderFormHandler orderFormHandler;
-        private readonly AutoShopCart autoShopCart;
+        private readonly IOrderFormBuilder orderFormBuilder;
 
-        public OrderController(IOrderFormValidator orderFormValidator,
-            IOrderFormHandler orderFormHandler, AutoShopCart autoShopCart)
+        public OrderController(IOrderFormValidator orderFormValidator, IOrderFormHandler orderFormHandler,
+            IOrderFormBuilder orderFormBuilder)
         {
             this.orderFormValidator = orderFormValidator;
             this.orderFormHandler = orderFormHandler;
-            this.autoShopCart = autoShopCart;
+            this.orderFormBuilder = orderFormBuilder;
         }
 
         public IActionResult Checkout()
         {
-            orderFormValidator.ValidateOnCheckout(ModelState);
-
             ViewBag.Title = "Заказ";
 
             return View();
@@ -38,7 +36,7 @@ namespace AutoShop.Controllers
                 return RedirectToAction("Complete");
             }
 
-            return View(holder.Form);
+            return View(orderFormBuilder.Build(holder));
         }
 
         public IActionResult Complete()
