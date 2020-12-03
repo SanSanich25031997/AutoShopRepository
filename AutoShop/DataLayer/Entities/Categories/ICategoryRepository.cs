@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
 
 namespace DataLayer.Entities.Categories
 {
     public interface ICategoryRepository
     {
-        DbSet<Category> AllCategories { get; }
+        IEnumerable<Category> AllCategories { get; }
     }
 }
