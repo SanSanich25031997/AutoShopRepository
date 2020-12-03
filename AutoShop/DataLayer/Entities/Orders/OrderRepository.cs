@@ -15,11 +15,11 @@ namespace DataLayer.Entities.Orders
             this.autoShopCart = autoShopCart;
         }
 
-        public void CreateOrder(string id, string name, string lastName, string address, string phone, string email)
+        public void CreateOrder(string name, string lastName, string address, string phone, string email)
         {
             Order order = new Order
             {
-                Id = id,
+                Id = Guid.NewGuid().ToString(),
                 FirstName = name,
                 LastName = lastName,
                 Address = address,

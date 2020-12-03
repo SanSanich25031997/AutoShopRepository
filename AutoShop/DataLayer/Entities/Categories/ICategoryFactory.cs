@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DataLayer.Entities.Categories
+﻿namespace DataLayer.Entities.Categories
 {
     public interface ICategoryFactory
     {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using DataLayer.Entities.Cars;
+﻿using System.Collections.Generic;
 using DataLayer.Entities.AutoShopCartItems;
 
 namespace DataLayer.Entities.AutoShopCarts

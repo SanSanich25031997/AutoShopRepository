@@ -4,7 +4,6 @@ namespace AutoShop.ViewModels.OrderVM.CreateEdit
 {
     public class OrderForm
     {
-        public string Id { get; set; }
         [Display(Name = "Введите имя"), Required(ErrorMessage = "Имя должно быть введено!")]
         public string FirstName { get; set; }
         [Display(Name = "Введите фамилию"), Required(ErrorMessage = "Фамилия должна быть введена!")]
