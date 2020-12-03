@@ -6,6 +6,6 @@ namespace DataLayer.Entities.OrderDetails
 {
     public interface IOrderDetailFactory
     {
-        OrderDetail Create(int id, int orderId, int carId, int price);
+        OrderDetail Create(string orderId, string carId, int price);
     }
 }

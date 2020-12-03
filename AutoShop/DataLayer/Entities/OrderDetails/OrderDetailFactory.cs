@@ -1,12 +1,14 @@
-﻿namespace DataLayer.Entities.OrderDetails
+﻿using System;
+
+namespace DataLayer.Entities.OrderDetails
 {
     public class OrderDetailFactory : IOrderDetailFactory
     {
-        public OrderDetail Create(int id, int orderId, int carId, int price)
+        public OrderDetail Create(string orderId, string carId, int price)
         {
             return new OrderDetail
             {
-                Id = id,
+                Id = Guid.NewGuid().ToString(),
                 OrderId = orderId,
                 CarId = carId,
                 Price = price

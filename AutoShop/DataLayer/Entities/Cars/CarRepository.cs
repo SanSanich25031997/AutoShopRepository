@@ -18,7 +18,7 @@ namespace DataLayer.Entities.Cars
         public IEnumerable<Car> GetFavoriteCars => autoShopDbContext.Car.Where(p => p.IsFavorite)
             .Include(c => c.Category);
 
-        public Car GetObjectCar(int carId) => autoShopDbContext.Car.FirstOrDefault(p => p.Id == carId);
+        public Car GetObjectCar(string carId) => autoShopDbContext.Car.FirstOrDefault(p => p.Id.Equals(carId));
 
         public IEnumerable<Car> FindCarsByCategory(string category)
         {

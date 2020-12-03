@@ -6,7 +6,7 @@ namespace DataLayer.Entities.Cars
     {
         IEnumerable<Car> Cars { get; }
         IEnumerable<Car> GetFavoriteCars { get; }
-        Car GetObjectCar(int carId);
+        Car GetObjectCar(string carId);
         IEnumerable<Car> FindCarsByCategory(string category);
     }
 }

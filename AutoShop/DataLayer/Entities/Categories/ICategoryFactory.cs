@@ -6,6 +6,6 @@ namespace DataLayer.Entities.Categories
 {
     public interface ICategoryFactory
     {
-        Category Create(int id, string name, string description);
+        Category Create(string name, string description);
     }
 }

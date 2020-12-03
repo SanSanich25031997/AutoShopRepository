@@ -6,6 +6,6 @@ namespace DataLayer.Entities.AutoShopCartItems
 {
     public interface IAutoShopCartItemFactory
     {
-        AutoShopCartItem Create(int id, int price, string autoShopCartId);
+        AutoShopCartItem Create(int price, string autoShopCartId);
     }
 }

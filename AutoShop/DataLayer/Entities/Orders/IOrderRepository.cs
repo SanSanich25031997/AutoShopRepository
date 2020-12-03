@@ -2,6 +2,6 @@
 {
     public interface IOrderRepository
     {
-        void CreateOrder(int id, string name, string lastName, string address, string phone, string email);
+        void CreateOrder(string id, string name, string lastName, string address, string phone, string email);
     }
 }

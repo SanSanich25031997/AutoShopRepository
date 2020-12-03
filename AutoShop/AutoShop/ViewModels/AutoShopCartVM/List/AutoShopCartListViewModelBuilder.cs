@@ -25,7 +25,7 @@ namespace AutoShop.ViewModels.AutoShopCartVM.List
 
         public void AddToCart(int id)
         {
-            var item = carRepository.Cars.FirstOrDefault(i => i.Id == id);
+            var item = carRepository.Cars.FirstOrDefault(i => i.Id.Equals(id));
 
             if (item != null)
             {

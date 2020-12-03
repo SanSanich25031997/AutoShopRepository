@@ -6,6 +6,6 @@ namespace DataLayer.Entities.Cars
 {
     public interface ICarFactory
     {
-        Car Create(int id, string name, string description, string image, int price, bool isFavorite, bool isAvailable, int categoryId);
+        Car Create(string name, string description, string image, int price, bool isFavorite, bool isAvailable, string categoryId);
     }
 }
