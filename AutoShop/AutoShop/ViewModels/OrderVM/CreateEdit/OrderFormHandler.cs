@@ -13,7 +13,7 @@ namespace AutoShop.ViewModels.OrderVM.CreateEdit
 
         public void HandleCheckout(OrderForm form, OrderValidationResult validationResult)
         {
-            orderRepository.CreateOrder(form.FirstName, form.FirstName, form.Address, form.Phone, form.Email);
+            orderRepository.CreateOrder(form.FirstName, form.LastName, form.Address, form.Phone, form.Email);
         }
     }
 }
