@@ -9,6 +9,9 @@ using DataLayer.Entities.Orders;
 using DataLayer;
 using DataLayer.Entities.AutoShopCarts;
 using AutoShop.ViewModels.OrderVM.CreateEdit;
+using AutoShop.ViewModels.AutoShopCartVM.List;
+using AutoShop.ViewModels.CarsVM.List;
+using AutoShop.ViewModels.HomeVM.List;
 using AutoShop.Core.Validation;
 
 namespace AutoShop
@@ -29,15 +32,23 @@ namespace AutoShop
         {
             services.AddDbContext<AutoShopDbContext>(options => options.UseSqlServer(configuration
                 .GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<ICarRepository, CarRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IAutoShopCartRepository, AutoShopCartRepository>();
+            services.AddScoped<IAutoShopCartListViewModelBuilder, AutoShopCartListViewModelBuilder>();
+            services.AddScoped<ICarsListViewModelBuilder, CarsListViewModelBuilder>();
+            services.AddScoped<IHomeListViewModelBuilder, HomeListViewModelBuilder>();
             services.AddScoped<IModelStateViewModelBuilder, ModelStateViewModelBuilder>();
             services.AddScoped<IOrderFormValidator, OrderFormValidator>();
             services.AddScoped<IOrderFormHandler, OrderFormHandler>();
-            services.AddTransient<ICarRepository, CarRepository>();
-            services.AddTransient<ICategoryRepository, CategoryRepository>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderFormBuilder, OrderFormBuilder>();
+            services.AddScoped<IOrderModelBuilder, OrderModelBuilder>();
+            
+            services.AddScoped(sp => AutoShopCartRepository.GetCart(sp));
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped(sp => AutoShopCartRepository.GetCart(sp));
 
             services.AddHttpClient();
             services.AddMvc();

@@ -8,14 +8,14 @@ namespace AutoShop.Controllers
     {
         private readonly IOrderFormValidator orderFormValidator;
         private readonly IOrderFormHandler orderFormHandler;
-        private readonly IOrderFormBuilder orderFormBuilder;
+        private readonly IOrderModelBuilder orderModelBuilder;
 
         public OrderController(IOrderFormValidator orderFormValidator, IOrderFormHandler orderFormHandler,
-            IOrderFormBuilder orderFormBuilder)
+            IOrderModelBuilder orderModelBuilder)
         {
             this.orderFormValidator = orderFormValidator;
             this.orderFormHandler = orderFormHandler;
-            this.orderFormBuilder = orderFormBuilder;
+            this.orderModelBuilder = orderModelBuilder;
         }
 
         public IActionResult Checkout()
@@ -36,7 +36,7 @@ namespace AutoShop.Controllers
                 return RedirectToAction("Complete");
             }
 
-            return View(orderFormBuilder.Build(holder));
+            return View("Checkout", orderModelBuilder.BuildByForm(holder.Form));
         }
 
         public IActionResult Complete()

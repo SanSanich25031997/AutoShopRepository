@@ -4,9 +4,9 @@ namespace AutoShop.ViewModels.OrderVM.CreateEdit
 {
     public class OrderFormHandler : IOrderFormHandler
     {
-        private readonly OrderRepository orderRepository;
+        private readonly IOrderRepository orderRepository;
 
-        public OrderFormHandler(OrderRepository orderRepository)
+        public OrderFormHandler(IOrderRepository orderRepository)
         {
             this.orderRepository = orderRepository;
         }
