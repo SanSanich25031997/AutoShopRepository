@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
+using DataLayer.Entities.Categories;
 
 namespace DataLayer.Entities.Cars
 {
@@ -13,16 +14,16 @@ namespace DataLayer.Entities.Cars
             this.autoShopDbContext = autoShopDbContext;
         }
 
-        public IEnumerable<Car> Cars => autoShopDbContext.Car.Include(c => c.Category);
+        public IIncludableQueryable<Car, Category> Cars => autoShopDbContext.Car.Include(c => c.Category);
 
-        public IEnumerable<Car> GetFavoriteCars => autoShopDbContext.Car.Where(p => p.IsFavorite)
+        public IIncludableQueryable<Car, Category> GetFavoriteCars => autoShopDbContext.Car.Where(p => p.IsFavorite)
             .Include(c => c.Category);
 
         public Car GetObjectCar(string carId) => autoShopDbContext.Car.FirstOrDefault(p => p.Id.Equals(carId));
 
-        public IEnumerable<Car> FindCarsByCategory(string category)
+        public IQueryable<Car> FindCarsByCategory(string category)
         {
-            IEnumerable<Car> carsList;
+            IQueryable<Car> carsList;
             if (string.IsNullOrEmpty(category))
             {
                 carsList = autoShopDbContext.Car.OrderBy(c => c.Id);

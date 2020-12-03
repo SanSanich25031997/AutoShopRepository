@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer.Entities.Categories
 {
@@ -11,6 +11,6 @@ namespace DataLayer.Entities.Categories
             this.autoShopDbContext = autoShopDbContext;
         }
 
-        public IEnumerable<Category> AllCategories => autoShopDbContext.Category;
+        public DbSet<Category> AllCategories => autoShopDbContext.Category;
     }
 }
